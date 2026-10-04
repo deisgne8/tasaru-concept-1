@@ -70,6 +70,7 @@ const capabilityMedia = document.querySelector('.capability-media');
 const capabilityMediaCurrent = capabilityMedia?.querySelector('[data-capability-media-current]');
 const capabilityMediaNext = capabilityMedia?.querySelector('[data-capability-media-next]');
 let capabilityMediaTimer = 0;
+let capabilityPanelTimer = 0;
 
 const capabilityData = {
   'Seating': {
@@ -97,7 +98,7 @@ const capabilityData = {
     position: '48% center'
   },
   'Exterior plastics': {
-    description: "Exterior plastic components combine form and function across the vehicle. Localizing their manufacture expands the range of components available within the Kingdom's automotive ecosystem.",
+    description: "Exterior plastic components combine form and function across the vehicle. Localizing their manufacture expands the range of components available within the Kingdom’s automotive ecosystem.",
     supplier: 'JVIS',
     image: 'assets/capability-exterior-ev-detail.png',
     position: '45% center'
@@ -138,7 +139,8 @@ const setCapabilityMedia = (name) => {
   }, 980);
 };
 
-const selectCapability = (tab) => {
+const selectCapability = (tab, options = {}) => {
+  if (!tab) return;
   capabilityTabs.forEach((item) => {
     const selected = item === tab;
     item.setAttribute('aria-selected', String(selected));
@@ -153,6 +155,14 @@ const selectCapability = (tab) => {
   capDescription.hidden = false;
   setCapabilityMedia(name);
   capabilityPanel.setAttribute('aria-labelledby', tab.id);
+  tab.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', inline: 'center', block: 'nearest' });
+  window.clearTimeout(capabilityPanelTimer);
+  capabilityPanel.classList.remove('is-switching');
+  if (!reducedMotion) {
+    window.requestAnimationFrame(() => capabilityPanel.classList.add('is-switching'));
+    capabilityPanelTimer = window.setTimeout(() => capabilityPanel.classList.remove('is-switching'), 520);
+  }
+  if (options.focus) tab.focus();
 };
 
 setCapabilityMedia('Seating');
