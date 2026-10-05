@@ -98,7 +98,7 @@ p { font-size: var(--type-paragraph); text-wrap: pretty; }
 
 .hero { position: relative; min-height: min(100svh, 860px); padding: 118px var(--page) 38px; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(300px, .62fr); align-items: end; gap: 5vw; overflow: hidden; color: white; background: var(--navy); }
 .hero-media, .capability-media { position: absolute; inset: -5%; background-repeat: no-repeat; background-position: center; background-size: cover; transform: scale(1.035); will-change: transform; }
-.hero-media { overflow: hidden; background-image: url("assets/hero-manufacturing-car.png"); background-position: center right; background-size: cover; opacity: 1; filter: saturate(1.04) contrast(1.04) brightness(1.04); animation: hero-drift 18s ease-in-out infinite alternate; }
+.hero-media { overflow: hidden; background-image: url("assets/hero-localized-saudi-production-realistic-2x.png"); background-position: center right; background-size: cover; opacity: 1; filter: saturate(1.04) contrast(1.04) brightness(1.04); animation: hero-drift 18s ease-in-out infinite alternate; }
 .hero-media::before { content: none; }
 .hero-shade { position: absolute; inset: 0; background: radial-gradient(ellipse at 76% 28%, rgba(43,0,143,.08), transparent 35%), linear-gradient(90deg, rgba(0,23,48,.62) 0%, rgba(0,23,48,.42) 30%, rgba(0,23,48,.12) 62%, rgba(0,23,48,.04) 100%), linear-gradient(180deg, rgba(0,23,48,.28), transparent 40%, rgba(0,23,48,.42) 100%); }
 .hero-content { position: relative; z-index: 2; max-width: 930px; align-self: center; margin-bottom: 0; text-shadow: none; }
